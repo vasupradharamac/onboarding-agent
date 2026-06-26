@@ -1,0 +1,18 @@
+{
+  "northwind-logistics": {
+    "sow_contacts": [
+      {"name": "Priya Shah", "role": "VP Operations", "email": "priya.shah@northwindlogistics.com", "primary": true},
+      {"name": "Wei Lin", "role": "Backup Technical Contact", "email": "wei.lin@northwindlogistics.com", "primary": false}
+    ],
+    "crm_contacts": [
+      {"name": "Daniel Cho", "role": "IT Lead", "email": "daniel.cho@northwindlogistics.com"}
+    ]
+  },
+  "solace-health": {
+    "sow_contacts": [
+      {"name": "Marcus Webb", "role": "Director of Ops", "email": "marcus.webb@solacehealth.com", "primary": true},
+      {"name": "Renata Alves", "role": "Compliance Lead", "email": "renata.alves@solacehealth.com", "primary": false}
+    ],
+    "crm_contacts": []
+  }
+}

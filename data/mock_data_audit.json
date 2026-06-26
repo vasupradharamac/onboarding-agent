@@ -1,0 +1,14 @@
+{
+  "northwind-logistics": {
+    "total_records_checked": 14200,
+    "missing_fields_pct": 3,
+    "duplicate_records_pct": 1,
+    "summary": "Data quality consistent with client's description. No material issues found."
+  },
+  "solace-health": {
+    "total_records_checked": 9800,
+    "missing_fields_pct": 40,
+    "duplicate_records_pct": 12,
+    "summary": "Significant data quality issues found, concentrated in records migrated from legacy CRM last quarter. Missing required fields in 40% of records, well above acceptable threshold for go-live."
+  }
+}

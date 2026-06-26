@@ -1,0 +1,16 @@
+Kickoff call -- Solace Health -- June 25, 2026
+Attendees: Marcus Webb (Solace Health, Director of Ops), Vasu (Onboarding)
+
+1: Vasu: Let's start with where things stand on your side. Walk me through your current data situation.
+2: Marcus: Our data is clean, we audited it ourselves before this call. You shouldn't run into any issues there.
+3: Vasu: Good to hear, that'll speed things up. Any recent changes to your systems we should know about?
+4: Marcus: We did migrate about a third of our records over from our old CRM last quarter, but the rest is untouched.
+5: Vasu: Understood. Who else from your side should be looped in besides you?
+6: Marcus: It's mostly just me for now, but our compliance lead, Renata Alves, will need to sign off before anything goes live, given we're in healthcare.
+7: Vasu: Got it, I'll make sure compliance sign-off is built into the go-live step.
+8: Marcus: Appreciate that. We're hoping to be live within four weeks if possible, we have an internal deadline tied to a board update.
+9: Vasu: Four weeks is tight but let's see how the early steps go before committing to that.
+10: Marcus: Fair enough. One more thing, we use Salesforce for CRM and our team is fully remote, spread across three time zones, so scheduling might take some back and forth.
+11: Vasu: Noted, we'll plan for async-friendly scheduling. Anything else before we wrap up?
+12: Marcus: I think that's it from our side.
+13: Vasu: Great, we'll follow up shortly with next steps.

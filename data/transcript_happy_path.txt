@@ -1,0 +1,20 @@
+Kickoff call -- Northwind Logistics -- June 24, 2026
+Attendees: Priya Shah (Northwind, VP Operations), Daniel Cho (Northwind, IT Lead), Vasu (Onboarding)
+
+1: Vasu: Thanks for joining, let's start with a quick overview of what onboarding looks like over the next few weeks.
+2: Priya: Sounds good. Just so you know, Daniel here will be the main technical point of contact going forward, not me.
+3: Daniel: Yep, I'll be handling anything integration-related from our side.
+4: Vasu: Great, I'll make sure all technical comms route to Daniel from here on.
+5: Priya: I'll still want to be looped in on the high-level timeline though.
+6: Vasu: Of course. Can we talk through your current data setup?
+7: Daniel: Sure. Our customer and shipment data lives in a single Postgres instance, it's pretty clean honestly. We did a full cleanup project last year.
+8: Vasu: Good to hear. Any existing tools you're using that we should integrate with?
+9: Daniel: We're on HubSpot for CRM and we use Slack internally for ops alerts.
+10: Vasu: Got it, we can wire up Slack notifications for status updates if that's useful.
+11: Daniel: That would be great actually, our team lives in Slack.
+12: Priya: One thing -- we have a board meeting on July 15th and I'd like to be able to show some onboarding progress by then.
+13: Vasu: Noted, July 15th. We'll keep that in mind for the timeline.
+14: Daniel: Also, quick heads up, I'll be out next week on leave, so if anything technical comes up that week it'll have to wait or go through our backup contact, Wei Lin.
+15: Vasu: Good to know, I'll make sure Wei is on the contact list as backup.
+16: Priya: I think that covers everything from our side.
+17: Vasu: Perfect, we'll follow up with next steps shortly.
