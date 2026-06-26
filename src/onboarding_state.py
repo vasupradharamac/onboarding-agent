@@ -17,6 +17,9 @@ import uuid
 from dataclasses import dataclass, field, asdict
 from datetime import datetime
 from typing import Optional, Literal
+from dotenv import load_dotenv
+
+load_dotenv()
 
 
 def new_id(prefix: str) -> str:

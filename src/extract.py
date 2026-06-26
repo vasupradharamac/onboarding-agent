@@ -21,6 +21,9 @@ from __future__ import annotations
 import json
 import os
 import sys
+from dotenv import load_dotenv
+
+load_dotenv()
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 from onboarding_state import Fact
@@ -47,7 +50,6 @@ Rules:
 - Output ONLY a JSON object of the shape {{"facts": [...]}}, no preamble, no markdown fences. Each element of the array:
   {{"claim": "...", "source_span": "...", "domain": "...", "confidence": "stated"|"inferred"}}
 """
-
 
 def number_transcript(raw_text: str) -> str:
     """Inject line numbers into raw transcript text, one per line.
