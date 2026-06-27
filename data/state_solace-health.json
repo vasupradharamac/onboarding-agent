@@ -8,11 +8,11 @@
       "source_span": "lines 4",
       "domain": "data_quality",
       "confidence": "stated",
-      "status": "active"
+      "status": "contradicted"
     },
     {
       "id": "F2",
-      "claim": "About a third of the client's records were migrated from their old CRM last quarter.",
+      "claim": "The client migrated about a third of their records from their old CRM last quarter.",
       "source_span": "lines 6",
       "domain": "data_quality",
       "confidence": "stated",
@@ -60,7 +60,7 @@
     },
     {
       "id": "F8",
-      "claim": "The recent migration of a third of records suggests potential risk to data quality despite the clean audit.",
+      "claim": "The client's recent data migration could pose a risk to data quality despite the clean audit.",
       "source_span": "lines 4, 6",
       "domain": "risk",
       "confidence": "inferred",
@@ -101,7 +101,7 @@
       "action": "Schedule discovery calls with client technical team, considering remote team across three time zones",
       "template_origin": "deviation",
       "justification": {
-        "text": "Modified to account for the client's fully remote team spread across three time zones.",
+        "text": "Modified to account for the client's remote team spread across three time zones.",
         "fact_ids": [
           "F7"
         ]
@@ -142,7 +142,7 @@
       "action": "Run data quality audit on client-provided datasets, with attention to recent CRM migration risks",
       "template_origin": "deviation",
       "justification": {
-        "text": "Despite the clean audit, the recent migration of records suggests potential risk to data quality.",
+        "text": "Modified to address potential risks from recent CRM migration despite clean audit.",
         "fact_ids": [
           "F1",
           "F2",
@@ -171,10 +171,10 @@
     },
     {
       "step_id": "S8",
-      "action": "Send go-live readiness checklist to client for sign-off, ensuring Renata Alves' approval",
+      "action": "Send go-live readiness checklist to client for Renata Alves' sign-off",
       "template_origin": "deviation",
       "justification": {
-        "text": "Renata Alves, the compliance lead, needs to sign off before anything goes live.",
+        "text": "Modified to include Renata Alves' sign-off requirement before going live.",
         "fact_ids": [
           "F4"
         ]
@@ -186,10 +186,10 @@
     },
     {
       "step_id": "S9",
-      "action": "Internally track client's hope to be live within four weeks for board update",
+      "action": "Internally track client's hope to be live within four weeks for planning purposes",
       "template_origin": "deviation",
       "justification": {
-        "text": "The client hopes to be live within four weeks due to an internal deadline tied to a board update.",
+        "text": "Added to internally track the client's desired timeline for going live.",
         "fact_ids": [
           "F5"
         ]
@@ -200,7 +200,17 @@
       "tool_call_id": "T5"
     }
   ],
-  "conflicts": [],
+  "conflicts": [
+    {
+      "id": "C1",
+      "fact_id": "F1",
+      "trigger": "tool_result",
+      "tool_call_id": "T3",
+      "description": "The tool result shows 40% missing fields, which directly contradicts the claim that the client's data is clean.",
+      "status": "open",
+      "resolution": null
+    }
+  ],
   "tool_log": [
     {
       "call_id": "T1",
@@ -235,7 +245,7 @@
         }
       },
       "status": "error",
-      "timestamp": "2026-06-27T07:38:32.561750"
+      "timestamp": "2026-06-27T07:45:22.554472"
     },
     {
       "call_id": "T2",
@@ -247,10 +257,10 @@
         "task_created": true,
         "client_id": "solace-health",
         "description": "Create internal onboarding tasks for implementation team",
-        "created_at": "2026-06-27T07:38:32.561825"
+        "created_at": "2026-06-27T07:45:22.554552"
       },
       "status": "ok",
-      "timestamp": "2026-06-27T07:38:32.561833"
+      "timestamp": "2026-06-27T07:45:22.554558"
     },
     {
       "call_id": "T3",
@@ -265,7 +275,7 @@
         "summary": "Significant data quality issues found, concentrated in records migrated from legacy CRM last quarter. Missing required fields in 40% of records, well above acceptable threshold for go-live."
       },
       "status": "ok",
-      "timestamp": "2026-06-27T07:38:32.562371"
+      "timestamp": "2026-06-27T07:45:22.554903"
     },
     {
       "call_id": "T4",
@@ -277,11 +287,11 @@
         "note": "Integration environment configuration logged (no live system connected)"
       },
       "status": "ok",
-      "timestamp": "2026-06-27T07:38:32.562390"
+      "timestamp": "2026-06-27T07:45:22.554913"
     },
     {
       "call_id": "T5",
-      "tool": "Internally track client's hope to be live within four weeks for board update",
+      "tool": "Internally track client's hope to be live within four weeks for planning purposes",
       "input": {
         "client_id": "solace-health"
       },
@@ -289,7 +299,7 @@
         "note": "No matching mock tool for this step; logged as a no-op."
       },
       "status": "ok",
-      "timestamp": "2026-06-27T07:38:34.156221"
+      "timestamp": "2026-06-27T07:45:24.694487"
     }
   ],
   "approval_queue": [
@@ -299,7 +309,7 @@
       "ref_id": "S1",
       "proposed_action": "Send kickoff confirmation email summarizing scope and next steps",
       "justification": "Standard step, no client-specific deviation",
-      "drafted_content": "Subject: Kickoff Confirmation and Next Steps\n\nHello,\n\nThank you for choosing to partner with us. We are excited to begin this journey together. This email serves to confirm our kickoff meeting and outline the next steps.\n\nScope of Work:\n- Project initiation and timeline\n- Key deliverables\n- Communication protocols\n\nNext Steps:\n- Schedule our kickoff meeting\n- Review and finalize project timeline\n- Establish regular check-in points\n\nPlease let me know your availability for the kickoff meeting, and feel free to reach out if you have any questions.\n\nLooking forward to working together.\n\nBest regards,\nVasu",
+      "drafted_content": "Subject: Kickoff Confirmation and Next Steps\n\nHello,\n\nThank you for choosing to partner with us. We are excited to begin this journey together. This email serves as a confirmation of our kickoff meeting, where we discussed the scope of our collaboration and outlined the next steps.\n\nAs agreed, we will start with the initial phase of the project, focusing on the key deliverables we discussed. Our team will be in touch shortly to schedule our next meeting and ensure everything is on track.\n\nPlease feel free to reach out if you have any questions or require further clarification.\n\nLooking forward to a successful partnership.\n\nBest regards,\n\nVasu",
       "status": "pending",
       "decision_note": null
     },
@@ -309,7 +319,7 @@
       "ref_id": "S2",
       "proposed_action": "Send stakeholder introduction email to Marcus Webb and other client-side contacts",
       "justification": "Modified to include Marcus Webb as the primary contact.",
-      "drafted_content": "Subject: Introducing Your Onboarding Team at Solace Health\n\nDear Marcus and Team,\n\nI hope this message finds you well. I'm Vasu, your dedicated onboarding representative, and I'm thrilled to be working with Solace Health. Marcus, as the primary contact, I look forward to collaborating closely with you to ensure a smooth and successful onboarding process.\n\nPlease feel free to reach out to me directly with any questions or needs you may have. Together, we'll make this transition seamless and efficient.\n\nWarm regards,\n\nVasu",
+      "drafted_content": "Subject: Introducing Your Onboarding Team at Solace Health\n\nDear Marcus and Team,\n\nI hope this message finds you well. I am Vasu, your dedicated onboarding representative, and I am thrilled to be working with Solace Health. As Marcus Webb is our primary contact, please feel free to reach out to me directly for any assistance or questions you may have during this process.\n\nLooking forward to a successful collaboration.\n\nBest regards,\n\nVasu",
       "status": "pending",
       "decision_note": null
     },
@@ -318,8 +328,8 @@
       "type": "client_facing_action",
       "ref_id": "S3",
       "proposed_action": "Schedule discovery calls with client technical team, considering remote team across three time zones",
-      "justification": "Modified to account for the client's fully remote team spread across three time zones.",
-      "drafted_content": "Subject: Scheduling Your Discovery Call Across Time Zones\n\nHi [Client's Name],\n\nI hope this message finds you well. To ensure a seamless onboarding process, we would like to schedule a discovery call with your technical team. We understand that your team is fully remote and spread across three time zones, so we are committed to finding a time that works for everyone.\n\nCould you please provide us with your team's availability over the next week? We will do our best to accommodate all time zones.\n\nLooking forward to your response.\n\nBest regards,\nVasu",
+      "justification": "Modified to account for the client's remote team spread across three time zones.",
+      "drafted_content": "Subject: Scheduling Your Discovery Call with Our Team\n\nHi [Client's Name],\n\nI hope this message finds you well. To ensure a smooth onboarding process, we would like to schedule a discovery call with your technical team. We understand that your team operates remotely across three different time zones, and we are committed to finding a convenient time for everyone.\n\nCould you please share your team's availability for the upcoming week? This will help us coordinate a time that works for all parties involved.\n\nLooking forward to your response.\n\nBest regards,\n\nVasu\nClient Onboarding Rep",
       "status": "pending",
       "decision_note": null
     },
@@ -337,9 +347,19 @@
       "id": "A5",
       "type": "client_facing_action",
       "ref_id": "S8",
-      "proposed_action": "Send go-live readiness checklist to client for sign-off, ensuring Renata Alves' approval",
-      "justification": "Renata Alves, the compliance lead, needs to sign off before anything goes live.",
-      "drafted_content": "Subject: Action Required: Go-Live Readiness Checklist Approval Needed\n\nDear [Client's Name],\n\nI hope this message finds you well. As we prepare for the upcoming go-live, I am sending you the readiness checklist that requires your review and approval. Please note that Renata Alves, our compliance lead, will also need to sign off on this document to ensure all compliance standards are met.\n\nKindly review the checklist at your earliest convenience and let us know if you have any questions or require further clarification.\n\nThank you for your cooperation.\n\nBest regards,\n\nVasu\nClient Onboarding Representative",
+      "proposed_action": "Send go-live readiness checklist to client for Renata Alves' sign-off",
+      "justification": "Modified to include Renata Alves' sign-off requirement before going live.",
+      "drafted_content": "Subject: Go-Live Readiness Checklist for Your Review and Sign-Off\n\nHi Renata,\n\nI hope this message finds you well. As we prepare for the upcoming go-live, please find attached the readiness checklist that requires your review and sign-off.\n\nYour approval is crucial to ensure all compliance standards are met before we proceed.\n\nThank you for your attention to this matter.\n\nBest regards,\nVasu",
+      "status": "pending",
+      "decision_note": null
+    },
+    {
+      "id": "A6",
+      "type": "conflict_resolution",
+      "ref_id": "C1",
+      "proposed_action": "Fact 'The client's data is considered clean after an internal audit.' (cited from lines 4) is contradicted by the result of 'Run data quality audit on client-provided datasets, with attention to recent CRM migration risks'. How should this be resolved?",
+      "justification": "The tool result shows 40% missing fields, which directly contradicts the claim that the client's data is clean.",
+      "drafted_content": null,
       "status": "pending",
       "decision_note": null
     }
