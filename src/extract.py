@@ -41,12 +41,16 @@ EXTRACT_SYSTEM_PROMPT = f"""You are extracting structured facts from a client on
 The transcript has been pre-numbered, one line number per line. Every fact you extract MUST cite the exact line number(s) it came from, copied directly from the numbering already in the text. Do not count lines yourself beyond reading the number printed at the start of each line.
 
 Rules:
-- Extract only facts that would matter to planning or running the onboarding -- not small talk or filler.
-- A "fact" can be a stated claim (client said it directly), or an inferred risk/implication (you noticed it, the client didn't say it outright). Mark confidence accordingly: "stated" or "inferred".
+- Extract only facts ABOUT THE CLIENT'S situation, constraints, people, and systems. Never extract something the onboarding rep (Vasu) said she would do or proposed doing -- that is a future action, not a client fact, and it does not belong in this list at all, regardless of which line it's on.
+  BAD (do not do this): line says "we can wire up Slack notifications if useful" -> do NOT extract a fact like "Slack notifications will be integrated." This sentence describes the REP's offer, not the client's situation. Skip it entirely.
+  GOOD: only extract that the client uses Slack/HubSpot, since that's a fact about their tools.
+- One claim = one fact. Before adding a fact, check: does an existing fact in your list already cover this same underlying claim, even with different wording or a different confidence label? If yes, do NOT add it again -- not as "inferred", not under a different domain, not reworded. Skip it.
+  BAD (do not do this): fact 1 says "data is considered clean" (stated, data_quality), then a second fact says "recent cleanup suggests lower risk of data quality issues" (inferred, risk) -> this is the SAME claim said twice. Only keep ONE of these.
+- Use "inferred" only for a NEW claim that emerges from combining two or more SEPARATE facts the client did not connect themselves, where the combination reveals something neither fact says alone -- e.g. "data is clean" (one moment) + "we migrated a third of records last quarter" (a different moment) together imply a risk the client never stated outright. This is different from restating one fact in risk language -- that is NOT a new claim, see rule above.
+- MANDATORY CHECK before you finish: re-read your own list of stated facts. If any two of them are in tension or one undercuts the other -- e.g. a broad reassurance ("data is clean") sits next to a narrower caveat that could undermine it ("but we did migrate some records recently") -- you MUST add one additional "inferred" fact stating that tension explicitly, citing both source lines. Do not skip this check. If genuinely no such tension exists among the facts you found, you don't need to force one.
 - domain must be exactly one of: {", ".join(ALLOWED_DOMAINS)}
 - source_span should look like "lines 7" or "lines 4, 9" or "lines 14-15" -- whatever line numbers actually support the claim, copied from the transcript's own numbering.
 - claim should be a short, specific sentence -- not a quote, your own paraphrase of what matters.
-- If two lines together imply something neither says alone (e.g. a "clean data" claim plus a mention of a recent migration), extract that as a separate "inferred" fact with both line numbers cited, in addition to the stated facts.
 - Output ONLY a JSON object of the shape {{"facts": [...]}}, no preamble, no markdown fences. Each element of the array:
   {{"claim": "...", "source_span": "...", "domain": "...", "confidence": "stated"|"inferred"}}
 """

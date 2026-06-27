@@ -105,6 +105,7 @@ class ApprovalRequest:
     ref_id: str                      # points to a plan step_id or conflict id
     proposed_action: str
     justification: str
+    drafted_content: Optional[str] = None   # full email/message draft, when applicable -- what the human actually reviews
     status: ApprovalStatus = "pending"
     decision_note: Optional[str] = None
 
@@ -194,4 +195,9 @@ class OnboardingState:
         for a in self.pending_approvals():
             lines.append(f"  [{a.id}] ({a.type}) {a.proposed_action}")
             lines.append(f"      why: {a.justification}")
+            if a.drafted_content:
+                lines.append(f"      --- drafted content ---")
+                for content_line in a.drafted_content.split("\n"):
+                    lines.append(f"      {content_line}")
+                lines.append(f"      -----------------------")
         return "\n".join(lines)
